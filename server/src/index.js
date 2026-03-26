@@ -44,6 +44,7 @@ webPush.setVapidDetails(
 const authRoutes = require('./routes/auth');
 const pushRoutes = require('./routes/push');
 const requireAuth = require('./middleware/requireAuth');
+const reminderScheduler = require('./services/reminderScheduler');
 
 // Auth routes
 app.use('/auth', authRoutes);
@@ -74,4 +75,6 @@ const PORT = config.port;
 
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
+  // Start reminder scheduler
+  reminderScheduler.start();
 });

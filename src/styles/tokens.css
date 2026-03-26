@@ -1,0 +1,25 @@
+:root {
+  /* Colors */
+  --color-bg-primary: #0A0A0A;
+  --color-bg-secondary: #1A1A1A;
+  --color-accent: #6366F1;
+  --color-text-primary: #F8F8F8;
+  --color-text-muted: #6B7280;
+  --color-border: #2A2A2A;
+  --color-surface: #1E1E1E;
+  --color-danger: #EF4444;
+  --color-success: #22C55E;
+
+  /* Border radius */
+  --radius-sm: 8px;
+  --radius-md: 12px;
+
+  /* Typography */
+  --font-sans: 'Inter', system-ui, sans-serif;
+
+  /* Transitions */
+  --transition-fast: 150ms ease;
+
+  /* Shadows */
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.4);
+}

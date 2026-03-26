@@ -1,0 +1,68 @@
+@import './tokens.css';
+
+/* Button */
+.btn-primary {
+  background-color: var(--color-accent);
+  color: #fff;
+  border-radius: var(--radius-sm);
+  padding: 8px 16px;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-sans);
+  font-size: 1rem;
+  transition: background-color var(--transition-fast);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background-color: #4F46E5;
+}
+
+.btn-primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Card */
+.card {
+  background-color: var(--color-bg-secondary);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 16px;
+  box-shadow: var(--shadow-md);
+}
+
+/* Badge */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  border-radius: 4px;
+  padding: 2px 8px;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.badge--accent {
+  background-color: var(--color-accent);
+  color: #fff;
+}
+
+.badge--muted {
+  background-color: var(--color-text-muted);
+  color: var(--color-text-primary);
+}
+
+.badge--success {
+  background-color: var(--color-success);
+  color: #fff;
+}
+
+.badge--danger {
+  background-color: var(--color-danger);
+  color: #fff;
+}

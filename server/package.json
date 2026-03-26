@@ -20,6 +20,7 @@
     "express-session": "*",
     "googleapis": "^171.4.0",
     "jose": "*",
+    "node-cron": "*",
     "web-push": "*"
   },
   "devDependencies": {

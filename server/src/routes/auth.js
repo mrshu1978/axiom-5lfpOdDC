@@ -1,5 +1,6 @@
 const express = require('express');
 const googleOAuth = require('../services/googleOAuth');
+const tokenRegistry = require('../services/tokenRegistry');
 
 const router = express.Router();
 
@@ -41,6 +42,8 @@ router.get('/callback', async (req, res) => {
     // Store tokens and user in session
     req.session.tokens = tokens;
     req.session.user = user;
+    // Update token registry
+    tokenRegistry.set(user.id, tokens);
 
     res.redirect(`${process.env.CLIENT_ORIGIN}/`);
   } catch (err) {
@@ -93,6 +96,10 @@ router.get('/refresh', async (req, res) => {
         access_token: newTokens.access_token,
         expiry_date: newTokens.expiry_date,
       };
+      // Update token registry
+      if (req.session.user) {
+        tokenRegistry.set(req.session.user.id, req.session.tokens);
+      }
       res.json({
         access_token: newTokens.access_token,
         expiry_date: newTokens.expiry_date,

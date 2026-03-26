@@ -55,6 +55,7 @@ jobs:
         run: npm run build
         env:
           BASE_URL: /axiom-5lfpOdDC/
+          VITE_API_URL: ${{ secrets.VITE_API_URL }}
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

@@ -1,0 +1,28 @@
+services:
+  - type: web
+    name: agenda-google-pwa-server
+    runtime: node
+    rootDir: server
+    buildCommand: npm install --no-audit --no-fund
+    startCommand: npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 3001
+      - key: GOOGLE_CLIENT_ID
+        sync: false
+      - key: GOOGLE_CLIENT_SECRET
+        sync: false
+      - key: GOOGLE_REDIRECT_URI
+        sync: false
+      - key: SESSION_SECRET
+        generateValue: true
+      - key: VAPID_PUBLIC_KEY
+        value: BP2onPhcSTLJS_Ts_fl2fdT5d8MKfE9KoJSZIMLmb1XPdEYogLPr0YMpgd1iqzJKWSfAHdydxdyC6Lx_5aP3Ol8
+      - key: VAPID_PRIVATE_KEY
+        sync: false
+      - key: VAPID_EMAIL
+        sync: false
+      - key: CLIENT_ORIGIN
+        value: https://mrshu1978.github.io

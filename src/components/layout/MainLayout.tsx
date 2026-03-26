@@ -2,6 +2,7 @@ import { TopBar } from './TopBar';
 import { Sidebar } from './Sidebar';
 import { Footer } from './Footer';
 import { useCalendarSync } from '../../hooks/useCalendarSync';
+import { PushPermissionBanner } from '../notifications/PushPermissionBanner';
 
 interface MainLayoutProps {
   children: React.ReactNode;
@@ -23,6 +24,7 @@ export const MainLayout = ({ children }: MainLayoutProps) => {
           <header className="bg-[#1A1A1A] border-b border-[#2A2A2A] p-4">
             <TopBar />
           </header>
+          <PushPermissionBanner />
           <main className="flex-1 overflow-y-auto p-6">{children}</main>
         </div>
       </div>
@@ -32,6 +34,7 @@ export const MainLayout = ({ children }: MainLayoutProps) => {
         <header className="bg-[#1A1A1A] border-b border-[#2A2A2A] p-4">
           <TopBar />
         </header>
+        <PushPermissionBanner />
         <main className="flex-1 overflow-y-auto p-4">{children}</main>
         <nav className="bg-[#1A1A1A] border-t border-[#2A2A2A] p-3">
           <Sidebar mobile />

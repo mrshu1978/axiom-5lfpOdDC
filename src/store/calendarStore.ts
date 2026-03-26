@@ -9,6 +9,7 @@ export interface CalendarState {
   isLoading: boolean;
   lastSyncAt: number | null;
   offlineQueue: OfflineOperation[];
+  currentDate: Date;
 }
 
 export interface CalendarActions {
@@ -19,9 +20,11 @@ export interface CalendarActions {
   updateEvent: (eventId: string, updates: Partial<CalendarEvent>) => void;
   deleteEvent: (eventId: string) => void;
   addToOfflineQueue: (operation: OfflineOperation) => void;
+  removeFromOfflineQueue: (index: number) => void;
   processOfflineQueue: () => void;
   setLoading: (loading: boolean) => void;
   setLastSyncAt: (timestamp: number | null) => void;
+  setCurrentDate: (date: Date) => void;
 }
 
 const initialState: CalendarState = {
@@ -31,6 +34,7 @@ const initialState: CalendarState = {
   isLoading: false,
   lastSyncAt: null,
   offlineQueue: [],
+  currentDate: new Date(),
 };
 
 export const useCalendarStore = create<CalendarState & CalendarActions>()(
@@ -57,12 +61,15 @@ export const useCalendarStore = create<CalendarState & CalendarActions>()(
           set((state) => ({ events: state.events.filter(event => event.id !== eventId) })),
         addToOfflineQueue: (operation) =>
           set((state) => ({ offlineQueue: [...state.offlineQueue, operation] })),
+        removeFromOfflineQueue: (index) =>
+          set((state) => ({ offlineQueue: state.offlineQueue.filter((_, i) => i !== index) })),
         processOfflineQueue: () => {
-          // TODO: implement sync logic in TASK-011
+          // TODO: implement sync logic in TASK-011 (called by hook)
           set({ offlineQueue: [] });
         },
         setLoading: (isLoading) => set({ isLoading }),
         setLastSyncAt: (lastSyncAt) => set({ lastSyncAt }),
+        setCurrentDate: (currentDate) => set({ currentDate }),
       }),
       {
         name: 'calendar-state',
@@ -72,6 +79,7 @@ export const useCalendarStore = create<CalendarState & CalendarActions>()(
           events: state.events,
           lastSyncAt: state.lastSyncAt,
           offlineQueue: state.offlineQueue,
+          currentDate: state.currentDate,
         }),
         // Reviver to convert ISO strings to Date objects
         deserialize: (str) => {
@@ -82,6 +90,9 @@ export const useCalendarStore = create<CalendarState & CalendarActions>()(
               start: new Date(event.start),
               end: new Date(event.end),
             }));
+          }
+          if (parsed.currentDate) {
+            parsed.currentDate = new Date(parsed.currentDate);
           }
           return parsed;
         },

@@ -20,6 +20,7 @@ export interface CalendarEvent {
   reminders: Reminder[];
   timezone: string;
   googleEventId?: string;
+  lastModified?: string; // ISO string from Google API (event.updated)
 }
 
 export type OfflineOperationType = 'create' | 'update' | 'delete';

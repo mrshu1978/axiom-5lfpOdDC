@@ -1,4 +1,5 @@
 import { authService } from '../services/authService';
+import { Footer } from '../components/layout/Footer';
 
 export const LoginPage = () => {
   const handleLogin = () => {
@@ -39,10 +40,7 @@ export const LoginPage = () => {
         </button>
 
         <div className="mt-24">
-          {/* Footer placeholder */}
-          <div className="text-[#6B7280] text-sm border-t border-[#2A2A2A] pt-4">
-            Created by Axiom Forge
-          </div>
+          <Footer />
         </div>
       </div>
     </div>

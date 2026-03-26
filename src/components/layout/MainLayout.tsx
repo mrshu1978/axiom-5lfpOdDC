@@ -1,11 +1,15 @@
 import { TopBar } from './TopBar';
 import { Sidebar } from './Sidebar';
+import { Footer } from './Footer';
+import { useCalendarSync } from '../../hooks/useCalendarSync';
 
 interface MainLayoutProps {
   children: React.ReactNode;
 }
 
 export const MainLayout = ({ children }: MainLayoutProps) => {
+  useCalendarSync();
+
   return (
     <div className="min-h-screen bg-[#0A0A0A] text-white">
       <div className="hidden md:grid md:grid-cols-[240px_1fr] h-screen">
@@ -33,6 +37,8 @@ export const MainLayout = ({ children }: MainLayoutProps) => {
           <Sidebar mobile />
         </nav>
       </div>
+
+      <Footer />
     </div>
   );
 };

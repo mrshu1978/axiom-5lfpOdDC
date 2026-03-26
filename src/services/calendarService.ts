@@ -34,6 +34,7 @@ const mapGoogleEvent = (item: any, calendarId: string): CalendarEvent => {
     reminders,
     timezone: item.start.timeZone || 'UTC',
     googleEventId: item.id,
+    lastModified: item.updated, // ISO string from Google API
   };
 };
 

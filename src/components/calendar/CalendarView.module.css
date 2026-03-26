@@ -1,0 +1,99 @@
+.rbc-calendar {
+  background-color: #0A0A0A;
+  color: #F8F8F8;
+  font-family: sans-serif;
+}
+
+.rbc-header {
+  background-color: #1A1A1A;
+  color: #F8F8F8;
+  border-color: #2A2A2A;
+  padding: 8px 0;
+  font-weight: 600;
+}
+
+.rbc-today {
+  background-color: rgba(99, 102, 241, 0.1);
+}
+
+.rbc-event {
+  background-color: #6366F1;
+  border-radius: 4px;
+  font-size: 12px;
+  border: none;
+}
+
+.rbc-off-range-bg {
+  background-color: #0F0F0F;
+}
+
+.rbc-time-slot {
+  border-color: #1E1E1E;
+}
+
+.rbc-current-time-indicator {
+  background-color: #6366F1;
+}
+
+.rbc-time-view {
+  border-color: #2A2A2A;
+}
+
+.rbc-day-slot .rbc-time-slot {
+  border-color: #1E1E1E;
+}
+
+.rbc-timeslot-group {
+  border-color: #1E1E1E;
+}
+
+.rbc-time-content {
+  border-color: #2A2A2A;
+}
+
+.rbc-time-header {
+  border-color: #2A2A2A;
+}
+
+.rbc-time-header-content {
+  border-color: #2A2A2A;
+}
+
+.rbc-day-bg {
+  border-color: #2A2A2A;
+}
+
+.rbc-month-row {
+  border-color: #2A2A2A;
+}
+
+.rbc-month-view {
+  border-color: #2A2A2A;
+}
+
+.rbc-toolbar button {
+  color: #F8F8F8;
+  background-color: #2A2A2A;
+  border: 1px solid #2A2A2A;
+}
+
+.rbc-toolbar button:hover {
+  background-color: #3A3A3A;
+}
+
+.rbc-toolbar button.rbc-active {
+  background-color: #6366F1;
+  color: #FFFFFF;
+}
+
+.rbc-show-more {
+  color: #6366F1;
+}
+
+.rbc-event-content {
+  color: #FFFFFF;
+}
+
+.rbc-event-label {
+  color: rgba(255, 255, 255, 0.8);
+}

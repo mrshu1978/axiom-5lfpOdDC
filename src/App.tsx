@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { AuthGuard } from './components/AuthGuard';
 import { MainLayout } from './components/layout/MainLayout';
 import { LoginPage } from './pages/LoginPage';
+import { CalendarView } from './components/calendar/CalendarView';
 
 function App() {
   return (
@@ -13,7 +14,7 @@ function App() {
           element={
             <AuthGuard>
               <MainLayout>
-                <div>Calendar view will be here</div>
+                <CalendarView />
               </MainLayout>
             </AuthGuard>
           }

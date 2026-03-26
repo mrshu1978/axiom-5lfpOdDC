@@ -10,6 +10,7 @@ export interface CalendarState {
   lastSyncAt: number | null;
   offlineQueue: OfflineOperation[];
   currentDate: Date;
+  viewMode: 'month' | 'week' | 'day';
 }
 
 export interface CalendarActions {
@@ -25,6 +26,7 @@ export interface CalendarActions {
   setLoading: (loading: boolean) => void;
   setLastSyncAt: (timestamp: number | null) => void;
   setCurrentDate: (date: Date) => void;
+  setViewMode: (viewMode: 'month' | 'week' | 'day') => void;
 }
 
 const initialState: CalendarState = {
@@ -35,6 +37,7 @@ const initialState: CalendarState = {
   lastSyncAt: null,
   offlineQueue: [],
   currentDate: new Date(),
+  viewMode: 'month',
 };
 
 export const useCalendarStore = create<CalendarState & CalendarActions>()(
@@ -70,6 +73,7 @@ export const useCalendarStore = create<CalendarState & CalendarActions>()(
         setLoading: (isLoading) => set({ isLoading }),
         setLastSyncAt: (lastSyncAt) => set({ lastSyncAt }),
         setCurrentDate: (currentDate) => set({ currentDate }),
+        setViewMode: (viewMode) => set({ viewMode }),
       }),
       {
         name: 'calendar-state',
@@ -80,6 +84,7 @@ export const useCalendarStore = create<CalendarState & CalendarActions>()(
           lastSyncAt: state.lastSyncAt,
           offlineQueue: state.offlineQueue,
           currentDate: state.currentDate,
+          viewMode: state.viewMode,
         }),
         // Reviver to convert ISO strings to Date objects
         deserialize: (str) => {

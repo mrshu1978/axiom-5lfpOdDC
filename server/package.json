@@ -1,0 +1,29 @@
+{
+  "name": "agenda-google-pwa-server",
+  "version": "1.0.0",
+  "description": "Backend for Google Agenda PWA - OAuth proxy and Web Push",
+  "main": "src/index.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js",
+    "test": "echo \"No tests specified\" && exit 0"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "cookie-parser": "*",
+    "cors": "*",
+    "dotenv": "*",
+    "express": "*",
+    "express-session": "*",
+    "googleapis": "^171.4.0",
+    "jose": "*",
+    "node-cron": "*",
+    "web-push": "*"
+  },
+  "devDependencies": {
+    "nodemon": "*"
+  }
+}

@@ -1,27 +1,33 @@
-import { useState } from 'react'
-import './App.css'
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import { AuthGuard } from './components/AuthGuard';
+import { MainLayout } from './components/layout/MainLayout';
+import { LoginPage } from './pages/LoginPage';
+import { CalendarView } from './components/calendar/CalendarView';
+import { ToastContainer } from './components/common/ToastContainer';
+import { useNetworkToasts } from './hooks/useNetworkToasts';
 
 function App() {
-  const [count, setCount] = useState(0)
+  useNetworkToasts();
 
   return (
-    <>
-      <div>
-        <h1>Vite + React + TypeScript</h1>
-      </div>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <BrowserRouter>
+      <ToastContainer />
+      <Routes>
+        <Route path="/login" element={<LoginPage />} />
+        <Route
+          path="/"
+          element={
+            <AuthGuard>
+              <MainLayout>
+                <CalendarView />
+              </MainLayout>
+            </AuthGuard>
+          }
+        />
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;
